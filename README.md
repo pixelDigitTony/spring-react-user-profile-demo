@@ -1,4 +1,4 @@
-# Spring React Authentication Demo
+# Spring React User Profile Demo
 
 A demo to showcase a user profile with a dashboard that has permissions to access certain areas of the dashboard implemented with OAuth2, Spring Boot, Spring Security 6 + JWT, and ReactJS.
 
