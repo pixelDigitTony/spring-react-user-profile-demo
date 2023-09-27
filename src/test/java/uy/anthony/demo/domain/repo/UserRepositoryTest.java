@@ -7,15 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uy.anthony.demo.SpringBaseTest;
 import uy.anthony.demo.domain.model.User;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class UserRepositoryTest extends SpringBaseTest {
 
     @Autowired
     UserRepository userRepository;
     User user;
 
-    @BeforeAll
+    @BeforeEach
      void setUp() {
         user = new User();
     }
@@ -32,6 +30,6 @@ class UserRepositoryTest extends SpringBaseTest {
     void addUser() {
         user.setEmail("raushanah_luomamt@voice.oh");
         user.setAddress("Bottles Road 3942, Kentville, Australia, 586691");
-        userRepository.addUser(user);
+        userRepository.insert(user);
     }
 }

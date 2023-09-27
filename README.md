@@ -4,8 +4,6 @@ A demo to showcase a user profile with a dashboard that has permissions to acces
 
 # Project Structure
 
-The project is divided into 3 parts: the front-end, the back-end, and tests. The front-end is built using ReactJS, and the back-end is built using Spring Boot. The front-end is served from the back-end server. The front-end is located at [src/frontend](src/frontend), and the back-end is located at [src/main](src/main).
-
 here's what the project structure looks like when you open the src folder:
 ## Backend
 ```
@@ -67,4 +65,4 @@ This section teaches how to install, run and test the application.
 # References
 
 * [Accessing mongodb with spring](https://spring.io/guides/gs/accessing-data-mongodb/)
-* []()
+* [Docker mongodb image](https://hub.docker.com/_/mongo)
