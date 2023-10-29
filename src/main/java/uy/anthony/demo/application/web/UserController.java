@@ -9,12 +9,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import uy.anthony.demo.application.config.jwt.JwtUtil;
 import uy.anthony.demo.domain.model.User;
 import uy.anthony.demo.domain.repo.UserRepository;
 import uy.anthony.demo.domain.services.UserService;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     @Autowired
@@ -23,6 +24,8 @@ public class UserController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private JwtUtil jwtUtil;
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/fetch-active")
@@ -35,17 +38,20 @@ public class UserController {
     public ResponseEntity<User> loginUser(@RequestBody LoginRequest loginRequest){
         try {
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    loginRequest.username, loginRequest.password));
+                    loginRequest.email, loginRequest.password));
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            return ResponseEntity.ok((User) authentication.getPrincipal());
+            User user = (User) authentication.getPrincipal();
+            String jwt = jwtUtil.createToken(user);
+            user.setToken(jwt);
+            return ResponseEntity.ok(user);
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
 
-    public record LoginRequest(String username, String password) {
+    public record LoginRequest(String email, String password) {
     }
 
     @GetMapping("/logout")

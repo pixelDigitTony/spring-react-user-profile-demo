@@ -1,5 +1,7 @@
 package uy.anthony.demo.Impl.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,10 +23,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<User> user = userRepository.findByEmail(email);
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("User not found");
         }
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.get().setIsAccountNonExpired(true);
         user.get().setIsAccountNonLocked(true);
         user.get().setIsCredentialsNonExpired(true);
+
         return user.get();
     }
 

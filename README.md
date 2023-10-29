@@ -57,6 +57,8 @@ This section teaches how to install, run and test the application.
 * [Vite v4.4.5](https://vitejs.dev)
 * [Material UI](https://mui.com)
 * [Material UI Icons](https://mui.com)
+* [Database Rider](https://github.com/database-rider/database-rider)
+* [Java DBUnit](https://www.baeldung.com/java-dbunit)
 
 # Todo
 - [ ] implement basic backend functionality
@@ -66,3 +68,4 @@ This section teaches how to install, run and test the application.
 
 * [Accessing mongodb with spring](https://spring.io/guides/gs/accessing-data-mongodb/)
 * [Docker mongodb image](https://hub.docker.com/_/mongo)
+* [OAuth 2.0 Resource Server JWT](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html)
