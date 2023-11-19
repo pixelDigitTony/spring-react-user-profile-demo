@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void register(User user) throws Exception {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
+        Optional<User> userOptional = userRepository.findByEmail(user.getEmail());
         user.setIsAccountNonExpired(true);
         user.setIsAccountNonLocked(true);
         user.setIsCredentialsNonExpired(true);
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             throw new Exception("User already exists");
         }
         userRepository.save(user);
-        Optional<User> registeredUser = userRepository.findByUsername(user.getUsername());
+        Optional<User> registeredUser = userRepository.findByEmail(user.getEmail());
         if (registeredUser.isEmpty()) {
             throw new Exception("User not registered");
         }

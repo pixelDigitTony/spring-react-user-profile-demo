@@ -69,3 +69,4 @@ This section teaches how to install, run and test the application.
 * [Accessing mongodb with spring](https://spring.io/guides/gs/accessing-data-mongodb/)
 * [Docker mongodb image](https://hub.docker.com/_/mongo)
 * [OAuth 2.0 Resource Server JWT](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html)
+* [React folder architecture](https://blog.webdevsimplified.com/2022-07/react-folder-structure/)
