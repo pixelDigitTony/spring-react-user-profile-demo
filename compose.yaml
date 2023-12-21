@@ -20,5 +20,5 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=mexpress
     restart: unless-stopped
     ports:
-      - 8081:8081
+      - 8000:8000
 

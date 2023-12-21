@@ -1,0 +1,33 @@
+.register {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Add this line to center vertically */
+    margin: 0 auto; /* This centers the container horizontally */
+    width: 100%; /* Add this line to ensure full width */
+    max-width: 400px; /* Adjust the max-width as needed */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.login {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.formItem {
+    color: #f9f9f9;
+}
