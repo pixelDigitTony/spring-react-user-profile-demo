@@ -1,0 +1,16 @@
+.topMenu {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.topBar {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #002766;
+    width: 100%;
+    height: 46px;
+}
