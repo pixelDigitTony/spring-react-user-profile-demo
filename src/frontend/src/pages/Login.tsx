@@ -7,12 +7,13 @@ import {LockOutlined, UserOutlined} from "@ant-design/icons/lib/icons";
 
 interface LoginCred {
     id: string;
-    username: string;
+    email: string;
     password: string;
 }
 
 interface RegisterCred {
     username: string;
+    email: string;
     password: string;
 }
 
@@ -41,6 +42,7 @@ const Login = () => {
         try {
             const userReg = {
                 "username": formData.username,
+                "email": formData.email,
                 "password": formData.password,
             }
             const response = await LoginApi.register(userReg);
@@ -77,7 +79,7 @@ const Login = () => {
                                 <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" type="text" name="username" id="username" />
                             </Form.Item>
                             <Form.Item  name="email">
-                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" type="email"  name="email" id="email" />
+                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" type="email"  name="email" id="email" />
                             </Form.Item>
                             <Form.Item  name="password">
                                 <Input
@@ -107,10 +109,10 @@ const Login = () => {
                     onFinish={handleLogin}
                 >
                     <Form.Item
-                        name="username"
-                        rules={[{ required: true, message: 'Please input your Username!' }]}
+                        name="email"
+                        rules={[{ required: true, message: 'Please input your Email!' }]}
                     >
-                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
                     </Form.Item>
                     <Form.Item
                         name="password"

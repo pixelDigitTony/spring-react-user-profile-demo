@@ -11,19 +11,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import uy.anthony.demo.application.config.jwt.JwtUtil;
 import uy.anthony.demo.domain.model.User;
-import uy.anthony.demo.domain.repo.UserRepository;
 import uy.anthony.demo.domain.services.UserService;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/v1/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
     @Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
-    private UserRepository userRepository;
     @Autowired
     private JwtUtil jwtUtil;
     private static final Logger log = LoggerFactory.getLogger(UserController.class);

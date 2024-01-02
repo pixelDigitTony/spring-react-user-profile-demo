@@ -26,6 +26,7 @@ const Dashboard = () => {
             const response = await LoginApi.logout();
             alert(response)
             sessionStorage.removeItem('user');
+            navigate('/login', {replace: true});
         } catch (error) {
             // Handle errors, such as displaying an error message
             console.error('Logout Failed:', error);

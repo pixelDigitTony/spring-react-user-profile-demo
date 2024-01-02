@@ -2,6 +2,7 @@ import API from "./Api.tsx";
 
 interface RegisterCred {
     username: string;
+    email: string;
     password: string;
 }
 
@@ -10,7 +11,7 @@ const LoginApi = {
         try {
             // Handle the response, such as showing a success message or navigating to another page
             return await API.post('/v1/user/login/auth', {
-                "username": formData.username,
+                "email": formData.email,
                 "password": formData.password,
             }).then((result) => {
                 return result.data
@@ -27,7 +28,7 @@ const LoginApi = {
     register: async function(user: RegisterCred) {
         return  await API.post('/v1/user/register/create', user).then(() => {
             return API.post('/v1/user/login/auth', {
-                "username": user.username,
+                "email": user.email,
                 "password": user.password,
             }).then((result) => {
                 return result.data

@@ -12,7 +12,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:27017", "http://127.0.0.1:27017", "http://127.0.0.1:8010", "http://localhost:8010", "http://localhost:5173", "http://127.0.0.1:5173", "http://127.0.0.1:3000", "http://localhost:3000") // Replace with your frontend URL
+                .allowedOrigins("http://localhost:27017", "http://127.0.0.1:27017", "http://127.0.0.1:8010", "http://localhost:8010", "http://localhost:5173", "http://127.0.0.1:5173", "http://127.0.0.1:4000", "http://localhost:4000") // Replace with your frontend URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT")
                 .allowedHeaders("*");
     }

@@ -35,6 +35,6 @@ class UserRepositoryTest extends SpringBaseTest {
         user.setAddress("Bottles Road 3942, Kentville, Australia, 586691");
         user.setUsername("Peggy");
         user.setPassword(passwordEncoder.encode("lvG5wVN7z8Q8nMdzx"));
-        userRepository.insert(user);
+        userRepository.save(user);
     }
 }
