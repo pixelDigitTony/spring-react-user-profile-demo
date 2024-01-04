@@ -1,5 +1,7 @@
 package uy.anthony.demo.domain.model;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,9 +24,14 @@ public class User implements UserDetails {
 
     @Id
     private String id;
-
+    @NotNull
+    @NotEmpty
     private String username;
+    @NotNull
+    @NotEmpty
     private String password;
+    @NotNull
+    @NotEmpty
     private String email;
     private String address;
     private String profilePicture;

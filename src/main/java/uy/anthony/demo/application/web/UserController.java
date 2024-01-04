@@ -1,5 +1,8 @@
 package uy.anthony.demo.application.web;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +51,7 @@ public class UserController {
         }
     }
 
-    public record LoginRequest(String email, String password) {
+    public record LoginRequest(@NotEmpty @NotNull String email, @NotEmpty @NotNull String password) {
     }
 
     @GetMapping("/logout")
@@ -62,7 +65,7 @@ public class UserController {
     }
 
     @PostMapping("/register/create")
-    public ResponseEntity<?> register(@RequestBody User user) {
+    public ResponseEntity<?> register(@RequestBody @Valid User user) {
         try {
             userService.register(user);
             return ResponseEntity.ok(user);
