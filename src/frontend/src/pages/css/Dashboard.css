@@ -14,3 +14,12 @@
     width: 100%;
     height: 46px;
 }
+
+.navBar {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 46px;
+    width: 10%;
+    height: 100%;
+}
