@@ -10,7 +10,7 @@ const RedirectLayer = () => {
             setIsLoggedIn(true);
         }
         isLoggedIn ? navigate('/home', {replace: true}) : navigate('/login', {replace: true});
-    }, []);
+    }, [5000]);
 
     return (
         <>

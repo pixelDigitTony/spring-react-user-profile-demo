@@ -20,6 +20,38 @@ const router = createBrowserRouter([
                 path: "home",
                 element: <Dashboard/>,
                 errorElement: <div>404</div>,
+                children: [
+                    {
+                        path: "guestAccess1",
+                        element: <div>Guest Access 1</div>,
+                        errorElement: <div>404</div>,
+                    },
+                    {
+                        path: "guestAccess2",
+                        element: <div>Guest Access 2</div>,
+                        errorElement: <div>404</div>,
+                    },
+                    {
+                        path: "officerAccess1",
+                        element: <div>Officer Access 1</div>,
+                        errorElement: <div>404</div>,
+                    },
+                    {
+                        path: "officerAccess2",
+                        element: <div>Officer Access 2</div>,
+                        errorElement: <div>404</div>,
+                    },
+                    {
+                        path: "adminAccess1",
+                        element: <div>Admin Access 1</div>,
+                        errorElement: <div>404</div>,
+                    },
+                    {
+                        path: "adminAccess2",
+                        element: <div>Admin Access 2</div>,
+                        errorElement: <div>404</div>,
+                    }
+                ]
             }
         ]
 

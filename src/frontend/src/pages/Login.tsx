@@ -25,7 +25,7 @@ const Login = () => {
         try {
             const response = await LoginApi.login(formData);
             // Handle the response, such as showing a success message or navigating to another page
-            if(response === 404) {
+            if (response === 404) {
                 alert("Login failed")
                 return;
             }
@@ -46,7 +46,7 @@ const Login = () => {
                 "password": formData.password,
             }
             const response = await LoginApi.register(userReg);
-            if(response === 404) {
+            if (response === 404) {
                 alert("Login Failed")
                 return;
             }
@@ -62,86 +62,88 @@ const Login = () => {
     }
 
     return (
-            <>
-                <Modal open={isOpen}
-                       aria-labelledby="modal-modal-title"
-                       aria-describedby="modal-modal-description"
-                       className={"modal"}
-                       title={"Register"}
-                       maskClosable={false}
-                       centered={true}
-                       cancelText={"Back"}
-                       footer={null}
-                >
-                    <div>
-                        <Form title={"Register"} onFinish={handleRegister}>
-                            <Form.Item  name="username">
-                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" type="text" name="username" id="username" />
-                            </Form.Item>
-                            <Form.Item  name="email">
-                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" type="email"  name="email" id="email" />
-                            </Form.Item>
-                            <Form.Item  name="password">
-                                <Input
-                                    prefix={<LockOutlined className="site-form-item-icon" />}
-                                    type="password"
-                                    placeholder="Password"
-                                    name="password" id="password"
-                                />
-                            </Form.Item>
-                            <div style={{display: 'flex', justifyContent: 'center'}}>
-                                <Button className={"register"} onClick={isClosed}>
-                                    Cancel
-                                </Button>
-                                <Button className={"register"} htmlType={"submit"} >
-                                    Register
-                                </Button>
-                            </div>
-
-                        </Form>
-                    </div>
-                </Modal>
-                <Form
-                    title={"Login"}
-                    name="normal_login"
-                    className="login-form"
-                    initialValues={{ remember: true }}
-                    onFinish={handleLogin}
-                >
-                    <Form.Item
-                        name="email"
-                        rules={[{ required: true, message: 'Please input your Email!' }]}
-                    >
-                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
-                    </Form.Item>
-                    <Form.Item
-                        name="password"
-                        rules={[{ required: true, message: 'Please input your Password!' }]}
-                    >
-                        <Input
-                            prefix={<LockOutlined className="site-form-item-icon" />}
-                            type="password"
-                            placeholder="Password"
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Form.Item name="remember" valuePropName="checked" noStyle>
-                            <Checkbox className={'formItem'}>Remember me</Checkbox>
+        <>
+            <Modal open={isOpen}
+                   aria-labelledby="modal-modal-title"
+                   aria-describedby="modal-modal-description"
+                   className={"modal"}
+                   title={"Register"}
+                   maskClosable={false}
+                   centered={true}
+                   cancelText={"Back"}
+                   footer={null}
+            >
+                <div>
+                    <Form title={"Register"} onFinish={handleRegister}>
+                        <Form.Item name="username">
+                            <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="Username"
+                                   type="text" name="username" id="username"/>
                         </Form.Item>
+                        <Form.Item name="email">
+                            <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="Email"
+                                   type="email" name="email" id="email"/>
+                        </Form.Item>
+                        <Form.Item name="password">
+                            <Input
+                                prefix={<LockOutlined className="site-form-item-icon"/>}
+                                type="password"
+                                placeholder="Password"
+                                name="password" id="password"
+                            />
+                        </Form.Item>
+                        <div style={{display: 'flex', justifyContent: 'center'}}>
+                            <Button className={"register"} onClick={isClosed}>
+                                Cancel
+                            </Button>
+                            <Button className={"register"} htmlType={"submit"}>
+                                Register
+                            </Button>
+                        </div>
 
-                        <a className="login-form-forgot" href="">
-                            Forgot password
-                        </a>
+                    </Form>
+                </div>
+            </Modal>
+            <Form
+                title={"Login"}
+                name="normal_login"
+                className="login-form"
+                initialValues={{remember: true}}
+                onFinish={handleLogin}
+            >
+                <Form.Item
+                    name="email"
+                    rules={[{required: true, message: 'Please input your Email!'}]}
+                >
+                    <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="Email"/>
+                </Form.Item>
+                <Form.Item
+                    name="password"
+                    rules={[{required: true, message: 'Please input your Password!'}]}
+                >
+                    <Input
+                        prefix={<LockOutlined className="site-form-item-icon"/>}
+                        type="password"
+                        placeholder="Password"
+                    />
+                </Form.Item>
+                <Form.Item>
+                    <Form.Item name="remember" valuePropName="checked" noStyle>
+                        <Checkbox className={'formItem'}>Remember me</Checkbox>
                     </Form.Item>
 
-                    <Form.Item className={'formItem'}>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
-                            Log in
-                        </Button>
-                        Or <a onClick={isVisible}>register now!</a>
-                    </Form.Item>
-                </Form>
-            </>
+                    <a className="login-form-forgot" href="">
+                        Forgot password
+                    </a>
+                </Form.Item>
+
+                <Form.Item className={'formItem'}>
+                    <Button type="primary" htmlType="submit" className="login-form-button">
+                        Log in
+                    </Button>
+                    Or <a onClick={isVisible}>register now!</a>
+                </Form.Item>
+            </Form>
+        </>
     );
 };
 

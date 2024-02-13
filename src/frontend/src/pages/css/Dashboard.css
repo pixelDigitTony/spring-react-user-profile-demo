@@ -1,13 +1,13 @@
 .topMenu {
     display: block;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
 }
 
 .topBar {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     background-color: #002766;
@@ -17,9 +17,29 @@
 
 .navBar {
     display: block;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 46px;
     width: 10%;
     height: 100%;
+}
+
+.sideBar {
+    display: flex;
+    position: absolute;
+    left: 0;
+    width: fit-content;
+    height: 95%;
+}
+
+.collapseButton {
+    display: block;
+    position: absolute;
+    transition-delay: 0.0ms;
+    bottom: 0;
+}
+
+.content {
+    display: block;
+    position: absolute;
 }

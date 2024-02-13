@@ -55,10 +55,9 @@ This section teaches how to install, run and test the application.
 * [Axios v1.4.0](https://axios-http.com/docs/intro)
 * [Typescript v5.0.2](https://www.typescriptlang.org)
 * [Vite v4.4.5](https://vitejs.dev)
-* [Material UI](https://mui.com)
-* [Material UI Icons](https://mui.com)
 * [Database Rider](https://github.com/database-rider/database-rider)
 * [Java DBUnit](https://www.baeldung.com/java-dbunit)
+* [Ant Design v5.10.2]()
 
 # Todo
 - [ ] implement basic backend functionality

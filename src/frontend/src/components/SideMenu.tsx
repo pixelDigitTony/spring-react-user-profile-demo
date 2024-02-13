@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
-import {Menu, MenuProps} from "antd";
-import {AreaChartOutlined, ClockCircleOutlined, MailOutlined} from "@ant-design/icons";
+import {Button, Menu, MenuProps} from "antd";
+import {
+    AreaChartOutlined,
+    ClockCircleOutlined,
+    MailOutlined,
+    MenuFoldOutlined,
+    MenuUnfoldOutlined
+} from "@ant-design/icons";
+import {useNavigate} from "react-router-dom";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -23,38 +30,77 @@ function getItem(
 const SideMenu = () => {
 
     const [current, setCurrent] = useState('1');
+    const [collapsed, setCollapsed] = useState(false);
+    const navigate = useNavigate();
+
+    const toggleCollapsed = () => {
+        setCollapsed(!collapsed);
+    };
 
     const onClick: MenuProps['onClick'] = (e) => {
         setCurrent(e.key as string);
+        if (e.key === 'adminAccess1') {
+            navigate('adminAccess1', {replace: true});
+        }
+        if (e.key === 'adminAccess2') {
+            navigate('adminAccess2', {replace: true});
+        }
+        if (e.key === 'officerAccess1') {
+            navigate('officerAccess1', {replace: true});
+        }
+        if (e.key === 'officerAccess2') {
+            navigate('officerAccess2', {replace: true});
+        }
+        if (e.key === 'guestAccess1') {
+            navigate('guestAccess1', {replace: true});
+        }
+        if (e.key === 'guestAccess2') {
+            navigate('guestAccess2', {replace: true});
+        }
+    }
+
+    const onClick2 = () => {
+        toggleCollapsed();
     }
 
     const items: MenuItem[] = [
-        getItem('Navigation 1', 'nav1', <MailOutlined/>, [
-            getItem('Option 1', 'nav1op1'),
-            getItem('Option 2', 'nav1op2'),
+        getItem('Admin', 'nav1', <MailOutlined/>, [
+            getItem('Access 1', 'adminAccess1'),
+            getItem('Access 2', 'adminAccess2'),
         ]),
-        getItem('Navigation 2', 'nav2', <ClockCircleOutlined/>, [
-            getItem('Option 1', 'nav2op1'),
-            getItem('Option 2', 'nav2op2'),
+        getItem('Officer', 'nav2', <ClockCircleOutlined/>, [
+            getItem('Access 1', 'officerAccess1'),
+            getItem('Access 2', 'officerAccess2'),
         ]),
-        getItem('Navigation 3', 'nav3', <AreaChartOutlined/>, [
-            getItem('Option 1', 'nav3op1'),
-            getItem('Option 2', 'nav3op2'),
-        ]),
+        getItem('Guest', 'nav3', <AreaChartOutlined/>, [
+            getItem('Access 1', 'guestAccess1'),
+            getItem('Access 2', 'guestAccess2'),
+        ])
     ];
 
     return (
-        <div>
+        <div className={'sideBar'}>
             <Menu
                 theme="dark"
-                className={"navMenu"}
                 onClick={onClick}
-                defaultOpenKeys={['sub1']}
                 selectedKeys={[current]}
                 mode="inline"
                 items={items}
-                inlineCollapsed={false}
+                inlineCollapsed={collapsed}
                 disabledOverflow={true}
+                style={{
+                    flex: "auto",
+                    flexDirection: "column",
+                    height: "95%",
+                    position: "relative",
+                    overflow: "visible"
+                }}
+            />
+            <Button
+                className={"collapseButton"}
+                onClick={onClick2}
+                icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+                style={{width: "100%", height: '5%'}}
             />
         </div>
     );

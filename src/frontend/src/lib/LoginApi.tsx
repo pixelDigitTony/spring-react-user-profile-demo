@@ -7,7 +7,7 @@ interface RegisterCred {
 }
 
 const LoginApi = {
-    login: async function(formData: any) {
+    login: async function (formData: any) {
         try {
             // Handle the response, such as showing a success message or navigating to another page
             return await API.post('/v1/user/login/auth', {
@@ -25,8 +25,8 @@ const LoginApi = {
             console.error('Login Failed:', error);
         }
     },
-    register: async function(user: RegisterCred) {
-        return  await API.post('/v1/user/register/create', user).then(() => {
+    register: async function (user: RegisterCred) {
+        return await API.post('/v1/user/register/create', user).then(() => {
             return API.post('/v1/user/login/auth', {
                 "email": user.email,
                 "password": user.password,
@@ -46,7 +46,7 @@ const LoginApi = {
             }
         });
     },
-    logout: async function() {
+    logout: async function () {
         const response = await API.get('/v1/user/logout').then((result) => {
             return result
         }).catch((error) => {
@@ -57,8 +57,8 @@ const LoginApi = {
         });
         return response.data
     },
-    deleteUser: async function(userId: string) {
-        return await API.delete('/v1/user/delete/'+ userId).then((result) => {
+    deleteUser: async function (userId: string) {
+        return await API.delete('/v1/user/delete/' + userId).then((result) => {
             return result.data
         }).catch((error) => {
             if (error.response) {
